@@ -1,0 +1,32 @@
+{
+  "name": "guppi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A small local CLI that routes raw thoughts into durable project state.",
+  "type": "commonjs",
+  "bin": {
+    "guppi": "bin/guppi.js"
+  },
+  "files": [
+    "bin",
+    "dist/src",
+    "share",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "prepare": "npm install --global=false --ignore-scripts --include=dev --no-audit --no-fund --silent && npm run build",
+    "test": "npm run build && node --test dist/test/integration/*.test.js"
+  },
+  "engines": {
+    "node": ">=22.15"
+  },
+  "dependencies": {
+    "commander": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "typescript": "^5.9.3"
+  }
+}
